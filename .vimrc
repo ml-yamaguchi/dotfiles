@@ -31,7 +31,6 @@ NeoBundle 'grep.vim'
 
 NeoBundle 'eregex.vim'
 
-
 set number
 set incsearch
 set ignorecase
@@ -46,7 +45,7 @@ set ruler
 set modeline
 " タグファイルを使う
 set tags=tags
-"
+" 
 " タグを戻るのキーバインドを;tに変更
 nnoremap ;t :pop<CR>
 
@@ -65,7 +64,6 @@ au BufNewFile,BufRead * set softtabstop=0
 
 " ruby tab setting
 au BufNewFile,BufRead *.rhtml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
 au BufNewFile,BufRead *.rb set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.html.erb set expandtab tabstop=2 shiftwidth=2 softtabstop=2
@@ -164,6 +162,8 @@ endif
 autocmd Filetype * let g:AutoComplPop_CompleteOption='.,w,b,u,t,i'
 autocmd Filetype php let g:AutoComplPop_CompleteOption='.,w,b,u,t,i,k~/.vim/dict/php_functions.dict'
 
+
+
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -180,14 +180,14 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'php' : $HOME . '/.vim/dict/php_functions.dict',
-        \ }
+	\ 'default' : '',
+	\ 'vimshell' : $HOME.'/.vimshell_hist',
+	\ 'php' : $HOME . '/.vim/dict/php_functions.dict',
+		\ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+	let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -196,7 +196,6 @@ imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -262,7 +261,6 @@ let Tlist_Use_Right_Window = 1
 
 nnoremap ;tt       <Esc>:<C-u>:TrinityToggleAll<CR>
 
-
 " バッファの切り替え
 nnoremap <F4>       <Esc>:<C-u>bn<CR>
 nnoremap <F5>       <Esc>:<C-u>bd<CR>
@@ -295,7 +293,6 @@ hi default ShowMarksHLm ctermfg=red ctermbg=black cterm=none
 
 let g:showmarks_include="abcdefghijkloqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-
 " zencoding.vim
 let g:user_zen_settings = { 'indentation':'  ',
 \  'php': {
@@ -324,3 +321,4 @@ call setpos(".", s:cursor)
 endfunction
 
 autocmd BufWritePre *.php,*.rb,*.js,*.bat call RTrim()
+

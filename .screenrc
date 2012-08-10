@@ -1,0 +1,5 @@
+escape ^Tt
+vbell off
+hardstatus alwayslastline "%w"
+autodetach on
+startup_message off
