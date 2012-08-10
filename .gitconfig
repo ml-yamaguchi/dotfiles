@@ -1,0 +1,17 @@
+[user]
+  name = yamagu
+  email = www.yamagu@gmail.com
+[color]
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[alias]
+  co = checkout
+  a = add
+  s = status
+  l = log
+  c = commit
+[core]
+  editor = vim
