@@ -31,6 +31,8 @@ NeoBundle 'grep.vim'
 
 NeoBundle 'eregex.vim'
 
+NeoBundle 'JSON.vim'
+
 set number
 set incsearch
 set ignorecase
@@ -218,30 +220,30 @@ hi PmenuSel ctermbg=4
 hi PmenuSbar ctermbg=2
 hi PmenuThumb ctermbg=3
 
-" VimFiler
-nnoremap <F3> :VimFiler<Cr>
 
 " FuzzyFinder
-nnoremap ;b       <Esc>:<C-u>FuzzyFinderBuffer<CR>
-nnoremap ;f       <Esc>:<C-u>FuzzyFinderFile<CR>
-nnoremap ;g       <Esc>:<C-u>FuzzyFinderMruFile<CR>
+"nnoremap ;b       <Esc>:<C-u>FuzzyFinderBuffer<CR>
+"nnoremap ;f       <Esc>:<C-u>FuzzyFinderFile<CR>
+"nnoremap ;g       <Esc>:<C-u>FuzzyFinderMruFile<CR>
 
+" VimFiler
+nnoremap ;f <Esc>:<C-u>VimFiler<CR>
 
 """ unite.vim
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ;ub :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ;uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ;ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> ;um :<C-u>Unite file_mru<CR>
 " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ;uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> ;ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -257,13 +259,13 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
 
 nnoremap ;tt       <Esc>:<C-u>:TrinityToggleAll<CR>
 
 " バッファの切り替え
-nnoremap <F4>       <Esc>:<C-u>bn<CR>
-nnoremap <F5>       <Esc>:<C-u>bd<CR>
+nnoremap ;n       <Esc>:<C-u>bn<CR>
+" バッファを閉じる
+nnoremap ;q       <Esc>:<C-u>bd<CR>
 
 " NERDComments
 " コメントにスペースを空ける
@@ -308,8 +310,8 @@ let g:user_zen_settings = { 'indentation':'  ',
 \   }
 \}
 
-"set list
-"set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 highlight NonText ctermfg=darkgray
 highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
@@ -320,5 +322,5 @@ let s:cursor = getpos(".")
 call setpos(".", s:cursor)
 endfunction
 
-autocmd BufWritePre *.php,*.rb,*.js,*.bat call RTrim()
+autocmd BufWritePre *.php,*.rb,*.js,*.bat,*.json call RTrim()
 
