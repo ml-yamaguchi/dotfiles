@@ -1,37 +1,7 @@
-set nocompatible               " Be iMproved
- filetype off                   " Required!
- filetype plugin indent off     " Required!
-
-if has('vim_starting')
-  set runtimepath+=~/dotfiles/neobundle.vim/
+if version >= 702
+  " プラグイン管理設定を読み込む
+  source ~/.vimrc.bundle
 endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundle 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
-
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
-
-NeoBundle 'Shougo/vimfiler'
-
-NeoBundle 'scrooloose/nerdcommenter.git'
-NeoBundle 'vim-scripts/SrcExpl'
-NeoBundle 'taglist.vim'
-NeoBundle 'trinity.vim'
-NeoBundle 'grep.vim'
-
-NeoBundle 'eregex.vim'
-
-NeoBundle 'JSON.vim'
 
 set number
 set incsearch
@@ -47,7 +17,7 @@ set ruler
 set modeline
 " タグファイルを使う
 set tags=tags
-" 
+"
 " タグを戻るのキーバインドを;tに変更
 nnoremap ;t :pop<CR>
 
@@ -90,10 +60,6 @@ autocmd FileType php :set dictionary+=~/.vim/dict/php_functions.dict
 " 辞書ファイルを補完に使用する
 set complete+=k
 
-" phpDocumentor
-inoremap ;p <ESC>:call PhpDocSingle()<CR>i
-nnoremap ;p :call PhpDocSingle()<CR>
-vnoremap ;p :call PhpDocRange()<CR>
 
 " ステータスウインドウの表示
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
@@ -160,156 +126,7 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-" AutoComplPop
-autocmd Filetype * let g:AutoComplPop_CompleteOption='.,w,b,u,t,i'
-autocmd Filetype php let g:AutoComplPop_CompleteOption='.,w,b,u,t,i,k~/.vim/dict/php_functions.dict'
-
-
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-	\ 'default' : '',
-	\ 'vimshell' : $HOME.'/.vimshell_hist',
-	\ 'php' : $HOME . '/.vim/dict/php_functions.dict',
-		\ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-
-" ポップアップメニューのカラーを設定
-hi Pmenu ctermbg=0
-hi PmenuSel ctermbg=4
-hi PmenuSbar ctermbg=2
-hi PmenuThumb ctermbg=3
-
-
-" FuzzyFinder
-"nnoremap ;b       <Esc>:<C-u>FuzzyFinderBuffer<CR>
-"nnoremap ;f       <Esc>:<C-u>FuzzyFinderFile<CR>
-"nnoremap ;g       <Esc>:<C-u>FuzzyFinderMruFile<CR>
-
-" VimFiler
-nnoremap ;f <Esc>:<C-u>VimFiler<CR>
-
-""" unite.vim
-" 入力モードで開始する
-" let g:unite_enable_start_insert=1
-" バッファ一覧
-nnoremap <silent> ;ub :<C-u>Unite buffer<CR>
-" ファイル一覧
-nnoremap <silent> ;uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> ;ur :<C-u>Unite -buffer-name=register register<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> ;um :<C-u>Unite file_mru<CR>
-" 常用セット
-nnoremap <silent> ;uu :<C-u>Unite buffer file_mru<CR>
-" 全部乗せ
-nnoremap <silent> ;ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-
-"taglist
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-
-nnoremap ;tt       <Esc>:<C-u>:TrinityToggleAll<CR>
-
-" バッファの切り替え
-nnoremap ;n       <Esc>:<C-u>bn<CR>
-" バッファを閉じる
-nnoremap ;q       <Esc>:<C-u>bd<CR>
-
-" NERDComments
-" コメントにスペースを空ける
-let NERDSpaceDelims = 1
-" 未対応ファイルの警告を消す
-let NERDShutUp = 1
-
-" QuickRunPHPUnit
-augroup QuickRunPHPUnit
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
-augroup END
-
-" 初期化
-let g:quickrun_config = {}
-" PHPUnit
-let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
-
-let g:ref_phpmanual_path = $HOME.'/Documents/php-chunked-xhtml'
-
-" ShowMarks
-hi SignColumn ctermfg=white ctermbg=black cterm=none
-hi default ShowMarksHLl ctermfg=red ctermbg=black cterm=none
-hi default ShowMarksHLu ctermfg=red ctermbg=black cterm=none
-hi default ShowMarksHLo ctermfg=red ctermbg=black cterm=none
-hi default ShowMarksHLm ctermfg=red ctermbg=black cterm=none
-
-let g:showmarks_include="abcdefghijkloqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-" zencoding.vim
-let g:user_zen_settings = { 'indentation':'  ',
-\  'php': {
-\   'snippets' : {
-\       'php' : "<?php | ?>",
-\       'phpif' : "<?php if (|): ?>",
-\       'phpendif' : "<?php endif ?>",
-\       'phpforeach' : "<?php foreach (|): ?>",
-\       'phpendf' : "<?php endforeach ?>",
-\       'phpdump' : "<?php var_dump(|) ?>",
-\       'ar' : "array(|)",
-\       }
-\   }
-\}
-
+" 不可視文字を表示する
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 highlight NonText ctermfg=darkgray
@@ -322,5 +139,58 @@ let s:cursor = getpos(".")
 call setpos(".", s:cursor)
 endfunction
 
-autocmd BufWritePre *.php,*.rb,*.js,*.bat,*.json call RTrim()
+autocmd BufWritePre * call RTrim()
+
+" 最後の編集位置にカーソルを自動的に移動させる
+autocmd BufReadPost * if line ("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+if version >= 702
+  " プラグインの設定を読み込む
+  source ~/.vimrc.plugin_setting
+endif
+
+" 挿入モード時、ステータスラインの色を変更
+"
+" このファイルの内容をそのまま.vimrc等に追加するか、
+" pluginフォルダへこのファイルをコピーします。
+
+" 挿入モード時の色指定
+if !exists('g:hi_insert')
+  let g:hi_insert = 'highlight StatusLine guifg=blue guibg=gray gui=none ctermfg=gray ctermbg=cyan cterm=none'
+endif
+
+" Linux等でESC後にすぐ反映されない場合、次行以降のコメントを解除してください
+"if has('unix') && !has('gui_running')
+  " ESC後にすぐ反映されない場合
+"  inoremap <silent> <ESC> <ESC>
+"  inoremap <silent> <C-[> <ESC>
+"endif
+
+if has('syntax')
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
 
