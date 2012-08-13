@@ -1,0 +1,42 @@
+""" bundleインストール設定
+set nocompatible               " Be iMproved
+filetype off                   " Required!
+filetype plugin indent off     " Required!
+
+if has('vim_starting')
+  set runtimepath+=~/dotfiles/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" NeoBundle 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
+
+NeoBundle 'Shougo/unite.vim'
+
+" neocomplcache
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-snippets-complete'
+
+" FuzzyFinder
+" NeoBundle 'vim-scripts/FuzzyFinder'
+" NeoBundle 'vim-scripts/l9'
+
+NeoBundle 'scrooloose/nerdcommenter.git'
+
+NeoBundle 'vim-scripts/SrcExpl'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'vim-scripts/trinity.vim'
+
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'vim-scripts/eregex.vim'
+
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'vim-scripts/yanktmp.vim'
+
