@@ -1,6 +1,11 @@
 #!/bin/bash
 
-DOT_FILES=(.vim .vimrc .screenrc .gitignore .gitconfig .gitmodules .vimrc.bundle .vimrc.plugin_setting)
+mkdir -p ~/.vim/bundle
+if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+fi
+
+DOT_FILES=(.vimrc .screenrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting)
 
 for file in ${DOT_FILES[@]}
 do
