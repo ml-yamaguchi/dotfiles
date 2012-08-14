@@ -45,3 +45,9 @@ NeoBundle 'vim-scripts/smartchr'
 NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
+
+NeoBundle 'tpope/vim-abolish'
+
+NeoBundle 'msanders/snipmate.vim'
+
+NeoBundle 'thinca/vim-ref'

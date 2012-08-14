@@ -52,10 +52,10 @@ au BufNewFile,BufRead *.pl set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.pm set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " php tab setting
-au BufNewFile,BufRead *.php set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.php set expandtab tabstop=2 shiftwidth=2 softtabstop=2 filetype=php
 
 " php dict setting
-autocmd FileType php :set dictionary+=~/.vim/dict/php_functions.dict
+" autocmd FileType php :set dictionary+=~/.vim/dict/php_functions.dict
 
 " 辞書ファイルを補完に使用する
 set complete+=k
