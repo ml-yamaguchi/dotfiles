@@ -44,3 +44,4 @@ NeoBundle 'vim-scripts/smartchr'
 
 NeoBundle 'Lokaltog/vim-easymotion'
 
+NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
