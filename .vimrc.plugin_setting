@@ -112,7 +112,8 @@ let Tlist_Exit_OnlyWindow = 1
 nnoremap ;tt       <Esc>:<C-u>:TrinityToggleAll<CR>
 
 " バッファの切り替え
-nnoremap ;n       <Esc>:<C-u>bn<CR>
+nnoremap <C-j>        <Esc>:<C-u>bn<CR>
+inoremap <C-j>        <Esc>:<C-u>bn<CR>
 " バッファを閉じる
 nnoremap ;q       <Esc>:<C-u>bd<CR>
 
@@ -152,7 +153,7 @@ let g:user_zen_settings = { 'indentation':'  ',
 
 " smartchr
 inoremap <expr> = smartchr#loop('=', '==', '===', '!=', "!==")
-inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+inoremap <buffer><expr> , smartchr#one_of(',', ',')
 inoremap <buffer><expr> . smartchr#loop('.', '->', '...')
 
 " easymotion
@@ -175,3 +176,8 @@ autocmd FileType ruby nnoremap <silent><buffer> <Space>k :<C-u>Unite -start-inse
 autocmd FileType python nnoremap <silent><buffer> <Space>k :<C-u>Unite -start-insert -default-action=split ref/pydoc<CR>
 autocmd FileType perl nnoremap <silent><buffer> <Space>k :<C-u>Unite -start-insert -default-action=split ref/perldoc<CR>
 autocmd FileType php nnoremap <silent><buffer> <Space>k :<C-u>Unite -start-insert -default-action=split ref/phpmanual<CR>
+
+" vimshell map
+nnoremap <silent> ;sh :VimShell<CR>
+nnoremap <silent> ;shc :VimShellCreate<CR>
+nnoremap <silent> ;shh :VimShellPop<CR>

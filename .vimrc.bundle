@@ -51,3 +51,5 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'msanders/snipmate.vim'
 
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'vim-quickrun'
+

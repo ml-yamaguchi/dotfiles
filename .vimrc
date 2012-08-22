@@ -20,6 +20,7 @@ set tags=tags
 "
 " タグを戻るのキーバインドを;tに変更
 nnoremap ;t :pop<CR>
+nnoremap ;t :pop<CR>
 
 syntax on
 filetype on
