@@ -28,8 +28,10 @@ if [ ! -d ~/docs/php-chunked-xhtml ]; then
 	rm php_manual.tar.gz
 fi
 
+if [ -x php ]; then
 # php辞書の作成
 PHP_DICT=~/.vim/dict/php.dict
+mkdir -p ~/vim/dict
 # 関数
 php -r '$f=get_defined_functions();echo join("\n", $f["internal"]);'|sort > $PHP_DICT
 # クラス
@@ -38,4 +40,4 @@ php -r 'echo join("\n", get_declared_classes());'|sort >> $PHP_DICT
 php -r 'echo join("\n", get_declared_interfaces());'|sort >> $PHP_DICT
 # 定数
 php -r '$c=get_defined_constants();echo join("\n", array_keys($c));'|sort >> $PHP_DICT
-
+fi
