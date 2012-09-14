@@ -47,6 +47,7 @@ au BufNewFile,BufRead *.py set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " javascript tab setting
 au FileType javascript set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.js set ft=javascript fenc=utf-8
+au BufNewFile,BufRead *.json set ft=javascript fenc=utf-8
 
 " perl tab setting
 au BufNewFile,BufRead *.pl set expandtab tabstop=4 shiftwidth=4 softtabstop=4
