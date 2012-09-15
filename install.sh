@@ -9,7 +9,7 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
 fi
 
 # dotfileをホームディレクトリにリンク
-DOT_FILES=(.vimrc .screenrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting)
+DOT_FILES=(.vimrc .bashrc .screenrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting)
 
 for file in ${DOT_FILES[@]}
 do
@@ -40,4 +40,8 @@ php -r 'echo join("\n", get_declared_classes());'|sort >> $PHP_DICT
 php -r 'echo join("\n", get_declared_interfaces());'|sort >> $PHP_DICT
 # 定数
 php -r '$c=get_defined_constants();echo join("\n", array_keys($c));'|sort >> $PHP_DICT
+fi
+
+if [ ! -d ~/.screen ]; then
+	mkdir ~/.screen
 fi
