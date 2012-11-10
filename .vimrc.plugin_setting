@@ -78,7 +78,7 @@ let g:vimfiler_as_default_explorer=1
 
 """ unite.vim
 " 入力モードで開始する
-let g:unite_enable_start_insert=1
+" let g:unite_enable_start_insert=1
 " バッファ一覧
 nnoremap <silent> ;b :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -112,8 +112,8 @@ let Tlist_Exit_OnlyWindow = 1
 nnoremap ;tt       <Esc>:<C-u>:TrinityToggleAll<CR>
 
 " バッファの切り替え
-nnoremap <C-j>        <Esc>:<C-u>bn<CR>
-inoremap <C-j>        <Esc>:<C-u>bn<CR>
+nnoremap <C-n>        <Esc>:<C-u>bn<CR>
+inoremap <C-n>        <Esc>:<C-u>bn<CR>
 " バッファを閉じる
 nnoremap ;q       <Esc>:<C-u>bd<CR>
 

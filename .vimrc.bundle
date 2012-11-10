@@ -22,7 +22,7 @@ NeoBundle 'Shougo/unite.vim'
 
 " neocomplcache
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 
 " FuzzyFinder
 " NeoBundle 'vim-scripts/FuzzyFinder'
@@ -52,4 +52,17 @@ NeoBundle 'msanders/snipmate.vim'
 
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'vim-quickrun'
+
+NeoBundle 'pangloss/vim-javascript'
+
+NeoBundle 'scrooloose/syntastic'
+
+" ディレクトリ毎に設定ファイルを読み込み
+" .local.vimrc
+" .local.{filetype}.vimrc
+NeoBundle 'vim-localrc'
+
+" インデントに色を付けて表示
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 
