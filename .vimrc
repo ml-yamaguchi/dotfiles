@@ -45,7 +45,7 @@ au BufNewFile,BufRead *.html.erb set expandtab tabstop=2 shiftwidth=2 softtabsto
 au BufNewFile,BufRead *.py set expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " javascript tab setting
-au FileType javascript set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+au FileType javascript set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.js set ft=javascript fenc=utf-8
 au BufNewFile,BufRead *.json set ft=javascript fenc=utf-8
 
