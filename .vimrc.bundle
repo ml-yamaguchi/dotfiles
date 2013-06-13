@@ -16,17 +16,12 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/vimshell'
 
 NeoBundle 'Shougo/unite.vim'
 
 " neocomplcache
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-
-" FuzzyFinder
-" NeoBundle 'vim-scripts/FuzzyFinder'
-" NeoBundle 'vim-scripts/l9'
 
 NeoBundle 'scrooloose/nerdcommenter.git'
 
@@ -39,8 +34,6 @@ NeoBundle 'vim-scripts/eregex.vim'
 
 NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'vim-scripts/yanktmp.vim'
-
-NeoBundle 'vim-scripts/smartchr'
 
 NeoBundle 'Lokaltog/vim-easymotion'
 
@@ -56,13 +49,4 @@ NeoBundle 'vim-quickrun'
 NeoBundle 'pangloss/vim-javascript'
 
 NeoBundle 'scrooloose/syntastic'
-
-" ディレクトリ毎に設定ファイルを読み込み
-" .local.vimrc
-" .local.{filetype}.vimrc
-NeoBundle 'vim-localrc'
-
-" インデントに色を付けて表示
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
 
