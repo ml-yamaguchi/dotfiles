@@ -32,10 +32,31 @@ NeoBundle 'vim-scripts/trinity.vim'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/eregex.vim'
 
+""" <YankRing.vim>
+""" 複数のテキストの削除、コピー履歴を記録し後からアクセスできる
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'vim-scripts/yanktmp.vim'
+" pでペーストしたあとに、CTRL-P, CTRL-Nで記録したテキストを参照
 
+" F7 で:YRShowを実行し履歴の表示
+nnoremap <silent> <F7> :<C-u>YRShow<CR>
+inoremap <silent> <F7> <ESC>:<C-u>YRShow<CR>
+
+let g:yankling_max_history = 10              " 記録する履歴の件数
+let g:yankling_window_height = 13            " 履歴全件を見れるように高さを調節
+""" </YankRing.vim>
+
+
+""" <EasyMotion>
+""" 目的の単語へ素早くカーソルを移動する
 NeoBundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_leader_key =  '<Space><Space>'
+
+" スペース 2回 + w カーソル下の単語の先頭にキー表示
+" スペース 2回 + b カーソル上の単語の先頭にキー表示
+" スペース 2回 + j カーソル上の行の先頭にキー表示
+" スペース 2回 + k カーソル上の行の先頭にキー表示
+
+""" </EasyMotion>
 
 NeoBundle 'vim-scripts/PDV--phpDocumentor-for-Vim'
 
@@ -49,4 +70,10 @@ NeoBundle 'vim-quickrun'
 NeoBundle 'pangloss/vim-javascript'
 
 NeoBundle 'scrooloose/syntastic'
+
+" ruby
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'skwp/vim-rspec'
+NeoBundle 'Shougo/neocomplcache-rsense.vim'
 
