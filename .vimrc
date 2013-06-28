@@ -3,6 +3,8 @@ if version >= 702
   source ~/.vimrc.bundle
 endif
 
+set t_Co=256
+
 set number
 set incsearch
 set ignorecase
@@ -130,7 +132,7 @@ endif
 
 " 不可視文字を表示する
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 highlight NonText ctermfg=darkgray
 highlight SpecialKey term=underline ctermfg=darkgray guifg=darkgray
 
