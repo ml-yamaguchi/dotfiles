@@ -9,39 +9,10 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
 fi
 
 # dotfileをホームディレクトリにリンク
-DOT_FILES=(.vimrc .bashrc .screenrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting)
+DOT_FILES=(.vimrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting .tmux.conf)
 
 for file in ${DOT_FILES[@]}
 do
 	ln -sf ~/dotfiles/$file ~/$file
 done
 
-cd ~/
-# phpマニュアルのダウンロード
-if [ ! -d ~/docs/php-chunked-xhtml ]; then
-	mkdir -p ~/docs && cd ~/docs
-	# english
-	wget -O php_manual.tar.gz http://jp.php.net/get/php_manual_en.tar.gz/from/this/mirror
-	# japanese
-	# wget -O php_manual.tar.gz http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror
-	tar xzf php_manual.tar.gz
-	rm php_manual.tar.gz
-fi
-
-if [ -x php ]; then
-# php辞書の作成
-PHP_DICT=~/.vim/dict/php.dict
-mkdir -p ~/vim/dict
-# 関数
-php -r '$f=get_defined_functions();echo join("\n", $f["internal"]);'|sort > $PHP_DICT
-# クラス
-php -r 'echo join("\n", get_declared_classes());'|sort >> $PHP_DICT
-# インターフェース
-php -r 'echo join("\n", get_declared_interfaces());'|sort >> $PHP_DICT
-# 定数
-php -r '$c=get_defined_constants();echo join("\n", array_keys($c));'|sort >> $PHP_DICT
-fi
-
-if [ ! -d ~/.screen ]; then
-	mkdir ~/.screen
-fi
