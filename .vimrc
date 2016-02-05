@@ -3,6 +3,7 @@ if version >= 702
   source ~/.vimrc.bundle
 endif
 
+
 set t_Co=256
 
 set number
@@ -40,8 +41,11 @@ au BufNewFile,BufRead * set softtabstop=0
 " ruby tab setting
 au BufNewFile,BufRead *.rhtml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.rb set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.rake set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.yml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.html.erb set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.slim set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.jbuilder set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " python tab setting
 au BufNewFile,BufRead *.py set expandtab tabstop=4 shiftwidth=4 softtabstop=4

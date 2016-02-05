@@ -9,7 +9,7 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
 fi
 
 # dotfileをホームディレクトリにリンク
-DOT_FILES=(.vimrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting .tmux.conf)
+DOT_FILES=(.zshrc .vimrc .gitignore .gitconfig .vimrc.bundle .vimrc.plugin_setting .tmux.conf)
 
 for file in ${DOT_FILES[@]}
 do
