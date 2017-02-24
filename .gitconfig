@@ -1,6 +1,6 @@
 [user]
-	name = yamagu
-	email = www.yamagu@gmail.com
+	name = ml-yamaguchi
+	email = tomohiro.yamaguchi@monstar-lab.com
 [color]
   ui = auto
   diff = auto
@@ -13,5 +13,7 @@
   s = status
   l = log
   c = commit
+  p = !git push origin `git rev-parse --abbrev-ref HEAD`
 [core]
   editor = vim
+
