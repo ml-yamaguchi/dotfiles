@@ -2,7 +2,11 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  source /etc/bashrc
+fi
+
+if [ -f /etc/bashrc ]; then
+  source ~/.git-completion.bash
 fi
 
 # User specific aliases and functions

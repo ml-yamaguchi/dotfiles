@@ -68,4 +68,5 @@ case ${OSTYPE} in
 esac
 # 補完候補もLS_COLORSに合わせて色が付くようにする
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:git:*' script ~/.git-completion.zsh
 
